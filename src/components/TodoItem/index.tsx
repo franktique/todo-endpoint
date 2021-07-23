@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 import {Todo} from '../../types';
 import {useTodo} from '../../context/TodoProvider';
-import {StyledTodoItem, StyledDateDiv} from './Styled'
-import {formatDate} from '../../utils'
+import {StyledTodoItem, StyledDateDiv} from './Styled';
+import {formatDate} from '../../utils';
 
 const TodoItem: React.FC<Todo> = ({id, description, dueDate, isComplete, overDue}) => {
 

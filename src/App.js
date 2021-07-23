@@ -1,12 +1,9 @@
 import './App.css';
-import {TodoProvider} from './context/TodoProvider'
-import TodoList from './components/TodoList'
-
+import {TodoProvider} from './context/TodoProvider';
+import TodoList from './components/TodoList';
 
 function App() {
 
-
-  console.log('intentio')
   return (
     <TodoProvider>
       <div className="App">

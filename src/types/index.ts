@@ -6,7 +6,6 @@ export interface Todo {
   overDue?:boolean;
 }
 
-
 export interface TodoContextType {
   todos?:Todo[];
   updateTodo?:any;

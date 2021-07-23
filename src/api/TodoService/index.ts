@@ -3,7 +3,7 @@ import { AxiosRequestConfig, AxiosInstance } from 'axios';
 import {Todo, updateResponse} from '../../types';
 
 export default class TodoService {
-  axios:AxiosInstance
+  axios:AxiosInstance;
   constructor(){
     this.axios = getAxios();
   }
