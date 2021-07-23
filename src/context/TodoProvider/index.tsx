@@ -23,7 +23,7 @@ export function TodoProvider({children}:any) {
 
     const orderTodos = (data:Todo[]):Todo[] => {
         const withDuedate = data.filter(item=> item.dueDate && !item.isComplete)
-                                .sort((a,b)=> {return (a.dueDate && b.dueDate && a.dueDate>b.dueDate?1:-1)}) ;                                      
+                                .sort((a,b)=> {return (a.dueDate && b.dueDate && new Date(a.dueDate)>new Date(b.dueDate)?-1:1)}) ;                                      
         const noDuedate = data.filter(item=> !item.dueDate && !item.isComplete);
         const completed = data.filter(item=> item.isComplete);
         
