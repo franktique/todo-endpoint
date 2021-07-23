@@ -9,7 +9,6 @@ export function useTodo(){
     return useContext(TodoContext)
 }
 
-//type Props = React.PropsWithChildren<Record<string, unknown>>;
 
 export function TodoProvider({children}:any) {
 
@@ -37,6 +36,19 @@ export function TodoProvider({children}:any) {
 
     const updateTodo = (id:number, isComplete:boolean) => {
         return todoService.updateTodo(id, isComplete)
+                    .then((response) => {
+                        if(response.status==="success") {
+                            toggleCompleteTodo(id, isComplete) 
+                        }                                           
+                    })
+    }
+
+    const toggleCompleteTodo = (id:number, isComplete:boolean) => {
+        let editTodos = todos;
+        editTodos.forEach((todo)=>{
+            if(todo.id===id) todo.isComplete =isComplete
+        });        
+        setTodos(orderTodos(editTodos));
     }
 
     return (
