@@ -3,6 +3,7 @@ export interface Todo {
   description: string;
   isComplete: boolean;
   dueDate?: Date;
+  overDue?:boolean;
 }
 
 
@@ -14,3 +15,8 @@ export interface TodoContextType {
 export interface updateResponse {
   status?:string;
 }
+
+export interface StyledTodoItemProps {
+  readonly isComplete: boolean;
+  readonly overDue?:boolean;
+};

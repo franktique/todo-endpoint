@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from 'axios';
-import getEnv from '../../utils/index'
+import {getEnv} from '../../utils/index'
 
 const API_KEY = getEnv('REACT_APP_API_KEY');
 const API_BASE_URL = getEnv('REACT_APP_API_BASE_URL');

@@ -3,6 +3,7 @@ import TodoService from '../../api/TodoService'
 import {Todo, TodoContextType} from '../../types'
 
 const TodoContext = createContext<TodoContextType>({})
+const today = new Date();
 
 export function useTodo(){
     return useContext(TodoContext)
@@ -16,18 +17,23 @@ export function TodoProvider({children}:any) {
     const todoService = new TodoService();
 
     useEffect(()=>{ 
-        console.log('useEffect')
         todoService.getTodoList()
-            .then((data)=>{
-
-               const withDuedate = data.filter(item=> item.dueDate && !item.isComplete).sort((a,b)=> {return (a.dueDate && b.dueDate && a.dueDate>b.dueDate?1:-1)});
-               const noDuedate = data.filter(item=> !item.dueDate && !item.isComplete);
-               const completed = data.filter(item=> item.isComplete);
-
-               setTodos(withDuedate.concat(noDuedate).concat(completed));
+            .then((data)=>{               
+               setTodos(orderTodos(data));
         })
-
     },[])
+
+    const orderTodos = (data:Todo[]):Todo[] => {
+        const withDuedate = data.filter(item=> item.dueDate && !item.isComplete)
+                                .sort((a,b)=> {return (a.dueDate && b.dueDate && a.dueDate>b.dueDate?1:-1)})                                       
+        const noDuedate = data.filter(item=> !item.dueDate && !item.isComplete);
+        const completed = data.filter(item=> item.isComplete);
+        
+        const  orderedTodos = withDuedate.concat(noDuedate)
+                                        .concat(completed)
+                                        .map((item)=> ({overDue:item.dueDate && new Date(item.dueDate) < today?true:false,...item}));
+        return orderedTodos;
+    }
 
     const updateTodo = (id:number, isComplete:boolean) => {
         return todoService.updateTodo(id, isComplete)
