@@ -1,6 +1,6 @@
-import getAxios from '../getAxios';
-import { AxiosRequestConfig, AxiosInstance } from 'axios';
-import { Todo, updateResponse } from '../../types';
+import getAxios from "../getAxios";
+import { AxiosRequestConfig, AxiosInstance } from "axios";
+import { Todo, updateResponse } from "../../types";
 
 export default class TodoService {
   axios: AxiosInstance;
