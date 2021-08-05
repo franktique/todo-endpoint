@@ -1,17 +1,15 @@
-import './App.css';
-import {TodoProvider} from './context/TodoProvider';
+import { TodoProvider } from './context/TodoProvider';
 import TodoList from './components/TodoList';
+import { StyledAppContainer } from './components/AppContainer/Styled';
 
 function App() {
-
   return (
     <TodoProvider>
-      <div className="App">
-          <TodoList/>
-      </div>
+      <StyledAppContainer>
+        <TodoList />
+      </StyledAppContainer>
     </TodoProvider>
   );
-
 }
 
 export default App;
