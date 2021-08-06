@@ -42,9 +42,10 @@ export function TodoProvider({ children }: any) {
     return orderedTodos;
   };
 
-  const updateTodo = (id: number, isComplete: boolean) => {
+  const updateTodo = (id: number, isComplete: boolean, callback: any) => {
     return todoService.updateTodo(id, isComplete).then((response) => {
       if (response.status === "success") {
+        callback(false);
         toggleCompleteTodo(id, isComplete);
       }
     });
