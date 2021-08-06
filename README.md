@@ -1,6 +1,6 @@
 # Running the application
 
-First of all, rename the file .envcopy to .env and modify the entries in order to store the correct values for the API_KEY and BASE_URL for the mocked api.
+First of all, rename the file .envcopy to .env and modify the entries in order to store the correct values for the API_KEY and BASE_URL for the mock api.
 
 ```
 REACT_APP_API_KEY=<put_here_api_key>
