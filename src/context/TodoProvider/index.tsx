@@ -1,6 +1,6 @@
-import { createContext, useContext, useState, useEffect } from 'react';
-import TodoService from '../../api/TodoService';
-import { Todo, TodoContextType } from '../../types';
+import { createContext, useContext, useState, useEffect } from "react";
+import TodoService from "../../api/TodoService";
+import { Todo, TodoContextType } from "../../types";
 
 const TodoContext = createContext<TodoContextType>({});
 const today = new Date();
@@ -44,7 +44,7 @@ export function TodoProvider({ children }: any) {
 
   const updateTodo = (id: number, isComplete: boolean) => {
     return todoService.updateTodo(id, isComplete).then((response) => {
-      if (response.status === 'success') {
+      if (response.status === "success") {
         toggleCompleteTodo(id, isComplete);
       }
     });

@@ -6,6 +6,10 @@ export interface Todo {
   overDue?: boolean;
 }
 
+export interface TodoListProps {
+  useTodo: any;
+}
+
 export interface TodoContextType {
   todos?: Todo[];
   updateTodo?: any;

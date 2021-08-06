@@ -1,0 +1,2 @@
+REACT_APP_API_KEY=<put_here_api_key>
+REACT_APP_API_BASE_URL=https://<put_here_base_url>

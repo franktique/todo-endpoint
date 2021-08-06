@@ -2,7 +2,8 @@
   "root": true,
   "parser": "@typescript-eslint/parser",
   "plugins": [
-    "@typescript-eslint","prettier"
+    "@typescript-eslint",
+    "prettier"
   ],
   "extends": [
     "eslint:recommended",
@@ -12,8 +13,11 @@
   ],
   "rules": {
     "prettier/prettier": "error",
-    "@typescript-eslint/indent": ["error", 2],
+    "@typescript-eslint/indent": [
+      "error",
+      2
+    ],
     "@typescript-eslint/no-unused-vars": 1,
-    "no-console": 2 // Remember, this means error!
+    "no-console": 1 // Remember, this means error!
   }
 }

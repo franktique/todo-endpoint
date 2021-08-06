@@ -9,7 +9,7 @@ export default class TodoService {
   }
 
   public getTodoList = (
-    requestConfig: AxiosRequestConfig = {},
+    requestConfig: AxiosRequestConfig = {}
   ): Promise<Todo[]> => {
     return this.axios.get(`/get`, requestConfig).then(({ data }) => data);
   };
@@ -17,7 +17,7 @@ export default class TodoService {
   public updateTodo = (
     id: number,
     isComplete: boolean,
-    requestConfig: AxiosRequestConfig = {},
+    requestConfig: AxiosRequestConfig = {}
   ): Promise<updateResponse> => {
     return this.axios
       .patch(`/patch/${id}`, `{isComplete=${isComplete}}`, requestConfig)

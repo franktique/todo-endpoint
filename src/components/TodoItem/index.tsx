@@ -1,8 +1,9 @@
-import React from 'react';
-import { Todo } from '../../types';
-import { useTodo } from '../../context/TodoProvider';
-import { StyledTodoItem, StyledDateDiv } from './Styled';
-import formatDate from '../../utils/formatDate';
+import React from "react";
+import { useState } from "react";
+import { Todo } from "../../types";
+import { useTodo } from "../../context/TodoProvider";
+import { StyledTodoItem, StyledDateDiv, StyledLoader } from "./Styled";
+import formatDate from "../../utils/formatDate";
 
 const TodoItem: React.FC<Todo> = ({
   id,
@@ -13,13 +14,28 @@ const TodoItem: React.FC<Todo> = ({
 }) => {
   const { updateTodo } = useTodo();
 
+  const [loading, setLoading] = useState(false);
+
+  const toggleLoading = () => {
+    setLoading(!loading);
+  };
+
+  console.log("loading");
+  console.log(loading);
   return (
     <StyledTodoItem isComplete={isComplete} overDue={overDue}>
-      <input
-        type="checkbox"
-        checked={isComplete}
-        onChange={() => updateTodo(id, !isComplete)}
-      />
+      {!loading ? (
+        <input
+          type="checkbox"
+          checked={isComplete}
+          onChange={() => {
+            toggleLoading();
+            updateTodo(id, !isComplete, toggleLoading);
+          }}
+        />
+      ) : (
+        <StyledLoader />
+      )}
       {isComplete ? <del>{description}</del> : <div>{description}</div>}
       {dueDate && (
         <StyledDateDiv isComplete={isComplete} overDue={overDue}>
