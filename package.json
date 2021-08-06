@@ -25,8 +25,8 @@
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "test": "npx jest --collectCoverage --config jest.config.js",
-    "lint": "eslint . --ext .ts",
-    "lint:fix": "eslint . --ext .ts --fix",
+    "lint": "eslint . --ext .ts --ext .tsx",
+    "lint:fix": "eslint . --ext .ts --ext .tsx --fix",
     "prettier": "npx prettier --check .",
     "prettier:fix": "npx prettier --write ."
   },
