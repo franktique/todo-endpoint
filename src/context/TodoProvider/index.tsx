@@ -14,9 +14,14 @@ export function TodoProvider({ children }: any) {
   const todoService = new TodoService();
 
   useEffect(() => {
-    todoService.getTodoList().then((data) => {
-      setTodos(orderTodos(data));
-    });
+    todoService
+      .getTodoList()
+      .then((data) => {
+        setTodos(orderTodos(data));
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   }, []);
 
   const orderTodos = (data: Todo[]): Todo[] => {
@@ -43,12 +48,17 @@ export function TodoProvider({ children }: any) {
   };
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const updateTodo = (id: number, isComplete: boolean, callback: any) => {
-    return todoService.updateTodo(id, isComplete).then((response) => {
-      if (response.status === "success") {
-        callback(false);
-        toggleCompleteTodo(id, isComplete);
-      }
-    });
+    return todoService
+      .updateTodo(id, isComplete)
+      .then((response) => {
+        if (response.status === "success") {
+          callback(false);
+          toggleCompleteTodo(id, isComplete);
+        }
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
 
   const toggleCompleteTodo = (id: number, isComplete: boolean) => {
