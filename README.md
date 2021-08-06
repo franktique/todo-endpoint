@@ -13,10 +13,16 @@ $ yarn i
 $ yarn start 
 ```
 
-in order to run unit tests with coverage report, you clould type
+in order to run unit tests with coverage report, you could type
 
 ```
 $ yarn test
+```
+
+similar for check lint errors
+
+```
+$ yarn lint
 ```
 
 
