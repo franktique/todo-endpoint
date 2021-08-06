@@ -8,7 +8,7 @@ const TodoList: React.FC<TodoListProps> = (props) => {
   const { todos }: TodoContextType = useTodo();
 
   return (
-    <StyledTodoList>
+    <StyledTodoList data-testid="todo-list">
       {todos && todos[0] ? (
         todos.map((todo) => {
           return <TodoItem key={todo.id} {...todo} />;

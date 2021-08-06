@@ -11,7 +11,8 @@ const todo = {
 
 describe("TodoItem", () => {
   it("renders with correct description", () => {
-    const { getByText } = render(<TodoItem key={todo.id} {...todo} />);
-    getByText(todo.description);
+    const { getByTestId } = render(<TodoItem key={todo.id} {...todo} />);
+    const description = getByTestId("todo-description-1");
+    expect(description.textContent).toEqual("sample todo");
   });
 });

@@ -5,10 +5,10 @@ import { Todo, TodoContextType } from "../../types";
 const TodoContext = createContext<TodoContextType>({});
 const today = new Date();
 
-export function useTodo() {
+export function useTodo(): TodoContextType {
   return useContext(TodoContext);
 }
-
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function TodoProvider({ children }: any) {
   const [todos, setTodos] = useState<Todo[]>([]);
   const todoService = new TodoService();
@@ -41,7 +41,7 @@ export function TodoProvider({ children }: any) {
       }));
     return orderedTodos;
   };
-
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const updateTodo = (id: number, isComplete: boolean, callback: any) => {
     return todoService.updateTodo(id, isComplete).then((response) => {
       if (response.status === "success") {

@@ -8,9 +8,10 @@ REACT_APP_API_BASE_URL=https://<put_here_base_url>
 ```
 
 then install dependencies and start the application as follow:
+
 ```
-$ yarn i 
-$ yarn start 
+$ yarn install
+$ yarn start
 ```
 
 in order to run unit tests with coverage report, you could type
@@ -24,6 +25,3 @@ similar for check lint errors
 ```
 $ yarn lint
 ```
-
-
-

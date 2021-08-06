@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Todo } from "../../types";
 import { useTodo } from "../../context/TodoProvider";
 import { StyledTodoItem, StyledDateDiv, StyledLoader } from "./Styled";
@@ -30,7 +30,11 @@ const TodoItem: React.FC<Todo> = ({
       ) : (
         <StyledLoader />
       )}
-      {isComplete ? <del>{description}</del> : <div>{description}</div>}
+      {isComplete ? (
+        <del data-testid={`todo-description-${id}`}>{description}</del>
+      ) : (
+        <div data-testid={`todo-description-${id}`}>{description}</div>
+      )}
       {dueDate && (
         <StyledDateDiv isComplete={isComplete} overDue={overDue}>
           {formatDate(dueDate)}

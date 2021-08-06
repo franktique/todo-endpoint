@@ -35,8 +35,12 @@ const { useTodo } = provider;
 
 describe("TodoList", () => {
   it("renders with Todos", () => {
-    const { getByText } = render(<TodoList useTodo={useTodo} />);
-    getByText("sample todo");
-    getByText("sample todo2");
+    const { getByTestId } = render(<TodoList useTodo={useTodo} />);
+
+    const itemOneDescription = getByTestId("todo-description-1");
+    expect(itemOneDescription.textContent).toEqual("sample todo");
+
+    const itemTwoDescription = getByTestId("todo-description-2");
+    expect(itemTwoDescription.textContent).toEqual("sample todo2");
   });
 });

@@ -1,3 +1,4 @@
+
 export interface Todo {
   id: number;
   description: string;
@@ -7,12 +8,12 @@ export interface Todo {
 }
 
 export interface TodoListProps {
-  useTodo: any;
+  useTodo: any; // eslint-disable-line @typescript-eslint/no-explicit-any
 }
 
 export interface TodoContextType {
   todos?: Todo[];
-  updateTodo?: any;
+  updateTodo?: any; // eslint-disable-line @typescript-eslint/no-explicit-any
 }
 
 export interface updateResponse {
